@@ -1,0 +1,5 @@
+added the following dependencies using maven dependency search
+spring boot starter data redis
+redis client jedis
+jakarta validation
+jakarta json-api
