@@ -18,12 +18,19 @@
 	</properties>
 	<dependencies>
 
+		<!-- https://mvnrepository.com/artifact/org.eclipse.parsson/parsson -->
+		<dependency>
+    		<groupId>org.eclipse.parsson</groupId>
+    		<artifactId>parsson</artifactId>
+    		<version>1.1.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jakarta.json/jakarta.json-api -->
 		<dependency>
 			<groupId>jakarta.json</groupId>
 			<artifactId>jakarta.json-api</artifactId>
 			<version>2.1.1</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -31,13 +38,12 @@
 			<version>5.0.0-beta1</version>
 		</dependency>
 
-
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
 			<version>3.0.2</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -60,6 +66,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

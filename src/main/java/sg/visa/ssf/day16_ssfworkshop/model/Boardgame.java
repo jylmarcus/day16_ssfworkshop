@@ -6,14 +6,12 @@ import java.util.Random;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-import jakarta.json.JsonObject;
-
 @RedisHash("boardgames")
 public class Boardgame implements Serializable {
 
     @Id
     private String boardGameId;
-    private JsonObject jsonObject;
+    private String jsonObject;
 
 
     public Boardgame() {
@@ -26,10 +24,10 @@ public class Boardgame implements Serializable {
     public void setId(String boardGameId) {
         this.boardGameId = boardGameId;
     }
-    public JsonObject getJsonObject() {
+    public String getJsonObject() {
         return jsonObject;
     }
-    public void setJsonObject(JsonObject jsonObject) {
+    public void setJsonObject(String jsonObject) {
         this.jsonObject = jsonObject;
     }
     

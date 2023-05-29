@@ -2,6 +2,7 @@ package sg.visa.ssf.day16_ssfworkshop.controller;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class Controller {
         }
 
         Boardgame bg = new Boardgame();
-        bg.setJsonObject(body);
+        bg.setJsonObject(body.toString());
 
         repository.createBoardgameEntity(bg);
 
@@ -58,7 +59,10 @@ public class Controller {
         Optional<Object> boardGameOptional = repository.getBoardGameEntity(bgId);
         JsonObject resp;
         if(boardGameOptional.isPresent()) {
-            resp = (JsonObject) boardGameOptional.get();
+            Boardgame bg = (Boardgame) boardGameOptional.get();
+            String bgbody = bg.getJsonObject();
+            JsonReader jr = Json.createReader(new StringReader(bgbody));
+            resp = jr.readObject();
         } else {
             resp = Json.createObjectBuilder()
                 .add("error", "Boardgame not found")
@@ -83,7 +87,7 @@ public class Controller {
 
         Boardgame bg = new Boardgame();
         bg.setId(bgId);
-        bg.setJsonObject(body);
+        bg.setJsonObject(body.toString());
         Integer updateStatus = repository.updateBoardGameEntity(bg, bgId);
         JsonObject resp;
         if(updateStatus == 1) {
